@@ -55,7 +55,7 @@ class CalculatorTest extends E2eTest {
         ]
     }
 
-    def 'failing test, see build/e2e-test/screenshots'() {
+    def 'failing test, see build/e2e-test/failure-context'() {
         given:
         Calculator calculator = new Calculator(webDriver)
 

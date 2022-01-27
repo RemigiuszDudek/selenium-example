@@ -8,6 +8,7 @@ class E2eTestSpockExtension implements IAnnotationDrivenExtension<SeleniumTest> 
     void visitSpecAnnotation(SeleniumTest annotation, SpecInfo spec) {
         spec.getFeatures().each {  feature ->
             feature.getFeatureMethod().addInterceptor(new SeleniumScreenshotUponFailureInterceptor(annotation))
+            feature.getFeatureMethod().addInterceptor(new SeleniumDomUponFailureInterceptor(annotation))
             feature.getFeatureMethod().addInterceptor(new SpecInfoLogInterceptor())
         }
     }

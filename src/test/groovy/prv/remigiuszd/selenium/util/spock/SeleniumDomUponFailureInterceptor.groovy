@@ -4,15 +4,14 @@ import org.openqa.selenium.WebDriver
 import org.spockframework.runtime.extension.IMethodInterceptor
 import org.spockframework.runtime.extension.IMethodInvocation
 import org.spockframework.runtime.model.FieldInfo
-import prv.remigiuszd.selenium.util.selenium.ScreenshotService
 
 import static prv.remigiuszd.selenium.util.spock.SpockExtensionUtils.specMethodName
 import static prv.remigiuszd.selenium.util.spock.SpockExtensionUtils.specSimpleClassName
 
-class SeleniumScreenshotUponFailureInterceptor implements IMethodInterceptor {
+class SeleniumDomUponFailureInterceptor implements IMethodInterceptor {
     private final SeleniumTest screenshotUponFailureConfig
 
-    SeleniumScreenshotUponFailureInterceptor(SeleniumTest screenshotUponFailureConfig) {
+    SeleniumDomUponFailureInterceptor(SeleniumTest screenshotUponFailureConfig) {
         this.screenshotUponFailureConfig = screenshotUponFailureConfig
     }
 
@@ -27,15 +26,15 @@ class SeleniumScreenshotUponFailureInterceptor implements IMethodInterceptor {
     }
 
     private void takeScreenshot(IMethodInvocation invocation) {
-        def targetFile = screenShotFile(invocation)
+        def targetFile = domFile(invocation)
         WebDriver driver = getWebDriver(invocation)
-        ScreenshotService.takeScreenshot(driver, targetFile)
+        targetFile << driver.getPageSource()
     }
 
-    private File screenShotFile(IMethodInvocation invocation) {
+    private File domFile(IMethodInvocation invocation) {
         def folderName = specSimpleClassName(invocation)
         def fileName = specMethodName(invocation).replaceAll("[^a-zA-Z0-9]", "_")
-        new File("${screenshotUponFailureConfig.testFailureContextDataDir()}/${folderName}/${fileName}.png")
+        new File("${screenshotUponFailureConfig.testFailureContextDataDir()}/${folderName}/${fileName}.html")
     }
 
     private static WebDriver getWebDriver(IMethodInvocation invocation) {
