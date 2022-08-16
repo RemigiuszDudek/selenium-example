@@ -1,7 +1,6 @@
 package prv.remigiuszd.selenium.calculator.model
 
 import org.openqa.selenium.By
-import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -70,10 +69,8 @@ class Calculator extends PageObject {
 
     private static void handleConsents(WebDriver webDriver) {
         waitUtil('handling personal data consent', webDriver, { driver ->
-            driver.findElement(className('fc-footer-buttons'))
-                    .findElements(tagName('button'))
-                    .find { it.getAttribute('aria-label') == 'Consent' }
-                    .click()
+            def consentButtons = webDriver.findElements(By.name('choice'))
+            consentButtons.find { it.getAttribute('value') == 'deny' }.click()
         })
     }
 
@@ -155,7 +152,7 @@ class Calculator extends PageObject {
                 calculator.radioButtonDegrees.click()
             }
         },
-        RADIANS {
+        RADIANS{
             @Override
             void apply(Calculator calculator) {
                 calculator.radioButtonRadians.click()
