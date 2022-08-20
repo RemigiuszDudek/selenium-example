@@ -17,34 +17,34 @@ import static prv.remigiuszd.selenium.util.FluentWaitUtil.waitUtil
 class Calculator extends PageObject {
     private static final URL = 'https://web2.0calc.com/'
 
-    @FindBy(id = 'Btn0') private WebElement button0
-    @FindBy(id = 'Btn1') private WebElement button1
-    @FindBy(id = 'Btn2') private WebElement button2
-    @FindBy(id = 'Btn3') private WebElement button3
-    @FindBy(id = 'Btn4') private WebElement button4
-    @FindBy(id = 'Btn5') private WebElement button5
-    @FindBy(id = 'Btn6') private WebElement button6
-    @FindBy(id = 'Btn7') private WebElement button7
-    @FindBy(id = 'Btn8') private WebElement button8
-    @FindBy(id = 'Btn9') private WebElement button9
-    @FindBy(id = 'BtnPi') private WebElement buttonPi
+    @FindBy(id = 'Btn0') private final WebElement button0
+    @FindBy(id = 'Btn1') private final WebElement button1
+    @FindBy(id = 'Btn2') private final WebElement button2
+    @FindBy(id = 'Btn3') private final WebElement button3
+    @FindBy(id = 'Btn4') private final WebElement button4
+    @FindBy(id = 'Btn5') private final WebElement button5
+    @FindBy(id = 'Btn6') private final WebElement button6
+    @FindBy(id = 'Btn7') private final WebElement button7
+    @FindBy(id = 'Btn8') private final WebElement button8
+    @FindBy(id = 'Btn9') private final WebElement button9
+    @FindBy(id = 'BtnPi') private final WebElement buttonPi
 
-    @FindBy(id = 'BtnPlus') private WebElement buttonPlus
-    @FindBy(id = 'BtnMult') private WebElement buttonMultiply
-    @FindBy(id = 'BtnDiv') private WebElement buttonDivide
-    @FindBy(id = 'BtnSqrt') private WebElement buttonSqrt
-    @FindBy(id = 'BtnCalc') private WebElement buttonEquals
+    @FindBy(id = 'BtnPlus') private final WebElement buttonPlus
+    @FindBy(id = 'BtnMult') private final WebElement buttonMultiply
+    @FindBy(id = 'BtnDiv') private final WebElement buttonDivide
+    @FindBy(id = 'BtnSqrt') private final WebElement buttonSqrt
+    @FindBy(id = 'BtnCalc') private final WebElement buttonEquals
 
-    @FindBy(id = 'BtnCos') private WebElement buttonCosine
-    @FindBy(id = 'trigorad') private WebElement radioButtonRadians
-    @FindBy(id = 'trigodeg') private WebElement radioButtonDegrees
+    @FindBy(id = 'BtnCos') private final WebElement buttonCosine
+    @FindBy(id = 'trigorad') private final WebElement radioButtonRadians
+    @FindBy(id = 'trigodeg') private final WebElement radioButtonDegrees
 
-    @FindBy(id = 'BtnParanL') private WebElement buttonBrackeLeft
-    @FindBy(id = 'BtnParanR') private WebElement buttonBracketRight
-    @FindBy(id = 'BtnClear') private WebElement buttonClear
+    @FindBy(id = 'BtnParanL') private final WebElement buttonBrackeLeft
+    @FindBy(id = 'BtnParanR') private final WebElement buttonBracketRight
+    @FindBy(id = 'BtnClear') private final WebElement buttonClear
 
-    @FindBy(id = 'hist') private WebElement history
-    @FindBy(id = 'input') private WebElement input
+    @FindBy(id = 'hist') private final WebElement history
+    @FindBy(id = 'input') private final WebElement input
 
     private final Map<Integer, CalculatorNumber> intToCalculatorDigit
     private final Map<CalculatorNumber, WebElement> calculatorNumbers
